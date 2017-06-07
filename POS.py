@@ -293,8 +293,8 @@ def q6_output(tagged, filename):
 		outfile.write(sentence)
 	outfile.close()
 
-DATA_PATH = '/Users/seonghwang/'
-OUTPUT_PATH = '/Users/seonghwang/POSoutput/'
+DATA_PATH = 'PATH_TO_YOUR_DATA'
+OUTPUT_PATH = 'PATH_TO_YOUR_OUTPUT'
 
 def main():
 	time.clock()
