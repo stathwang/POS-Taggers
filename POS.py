@@ -331,11 +331,9 @@ def main():
 		brown_dev_words.append(sentence.split(' ')[:-1])
 
 	viterbi_tagged = viterbi(brown_dev_words, taglist, known_words, q_values, e_values)
-
 	q5_output(viterbi_tagged, OUTPUT_PATH + 'B5.txt')
 
 	nltk_tagged = nltk_tagger(brown_words, brown_tags, brown_dev_words)
-
 	q6_output(nltk_tagged, OUTPUT_PATH + 'B6.txt')
 
 	print 'Time: ' + str(time.clock()) + ' sec'
