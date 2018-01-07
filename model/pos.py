@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 import sys
 import nltk
 import math
@@ -16,12 +17,12 @@ LOG_PROB_OF_ZERO = -1000
 # Receives a list of tagged sentences and processes each sentence to generate a list of words and a list of tags.
 # Each sentence is a string of space separated "WORD/TAG" tokens, with a newline character in the end.
 def split_wordtags(brown_train):
-	brown_tags = [[wordtag.rsplit('/', 1)[-1] for wordtag in sentence.strip().split()] for sentence in brown_train]
-	brown_tags = [[START_SYMBOL] * 2 + sent_tags + [STOP_SYMBOL] for sent_tags in brown_tags]
+    brown_tags = [[wordtag.rsplit('/', 1)[-1] for wordtag in sentence.strip().split()] for sentence in brown_train]
+    brown_tags = [[START_SYMBOL] * 2 + sent_tags + [STOP_SYMBOL] for sent_tags in brown_tags]
 
-	brown_words = [[wordtag.rsplit('/', 1)[0] for wordtag in sentence.strip().split()] for sentence in brown_train]
-	brown_words = [[START_SYMBOL] * 2 + sent_words + [STOP_SYMBOL] for sent_words in brown_words]
-	return brown_words, brown_tags
+    brown_words = [[wordtag.rsplit('/', 1)[0] for wordtag in sentence.strip().split()] for sentence in brown_train]
+    brown_words = [[START_SYMBOL] * 2 + sent_words + [STOP_SYMBOL] for sent_words in brown_words]
+    return brown_words, brown_tags
 
 def calc_ngrams(sent_tags, n):
 	ngrams = [tuple(sent_tags[i:(i+n)]) for i in range(len(sent_tags)-n+1)]
