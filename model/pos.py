@@ -25,7 +25,7 @@ def split_wordtags(brown_train):
     return brown_words, brown_tags
 
 def calc_ngrams(sent_tags, n):
-    ngrams = [tuple(tags[i:(i+n)]) for i in range(len(sent_tags)-n+1)]
+    ngrams = [tuple(sent_tags[i:(i+n)]) for i in range(len(sent_tags)-n+1)]
     return ngrams
 
 def deleted_interpolation(unigram_c, bigram_c, trigram_c):
